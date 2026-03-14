@@ -1,0 +1,79 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:glaze_nav_bar/glaze_nav_bar.dart';
+import 'package:save_plant/core/constants/app_colors.dart';
+import 'package:save_plant/feature/auth/presentation/views/profile_view.dart';
+import 'package:save_plant/feature/home/presentation/views/home_view.dart';
+
+class Root extends StatefulWidget {
+  const Root({super.key});
+
+  @override
+  State<Root> createState() => _RootState();
+}
+
+class _RootState extends State<Root> {
+  late PageController pageController;
+  int currentPage = 0;
+
+  late final List<Widget> pages;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: currentPage);
+
+    pages = [HomeView(), ProfileView()];
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBody: true,
+      body: PageView(
+        controller: pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        onPageChanged: (index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
+        children: pages,
+      ),
+
+      bottomNavigationBar: GlazeNavBar(
+        backgroundColor: Colors.transparent,
+        index: currentPage,
+        onTap: (index) {
+          setState(() {
+            currentPage = index;
+          });
+          pageController.jumpToPage(index);
+        },
+        items: [
+          GlazeNavBarItem(child: Icon(CupertinoIcons.home), label: 'Home'),
+          GlazeNavBarItem(child: Icon(CupertinoIcons.camera), label: 'Camera'),
+          GlazeNavBarItem(child: Icon(CupertinoIcons.person), label: 'Profile'),
+        ],
+          gradient: LinearGradient(
+    begin: Alignment.bottomLeft,
+    end: Alignment.topRight,
+    colors: [AppColor.primaryColor, AppColor.secondryColor],
+  ),
+  buttonGradient: LinearGradient(
+    begin: Alignment.bottomLeft,
+    end: Alignment.topRight,
+    colors:  [AppColor.primaryColor, AppColor.secondryColor],
+  ),
+      ),
+    );
+  }
+}

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 import 'package:save_plant/core/functions/validators.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/custom_textformfield.dart';
@@ -63,7 +62,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
         centerTitle: true,
         title: Text(
           'Change Password',
-          style: AppTextStyle.giloryBold24(context)
+          style: AppTextStyle.giloryBold24(context),
         ),
       ),
       body: SingleChildScrollView(

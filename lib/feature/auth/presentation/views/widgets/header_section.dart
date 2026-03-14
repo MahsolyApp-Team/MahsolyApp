@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:save_plant/core/constants/app_assets.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 
 class HeaderSection extends StatelessWidget {
@@ -9,10 +10,10 @@ class HeaderSection extends StatelessWidget {
     return Row(
        mainAxisAlignment :MainAxisAlignment.center,
       children: [
-        Image.asset(
-          'assets/images/logo.png',
-          fit: BoxFit.fill,
-        ),
+        Image(
+  image: AppAssets.logo, 
+  fit: BoxFit.fill,
+),
         SizedBox(width: 30),
         Text(
           title,

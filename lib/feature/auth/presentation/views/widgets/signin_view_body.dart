@@ -6,6 +6,7 @@ import 'package:save_plant/feature/auth/presentation/views/signup_view.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/custom_button_auth.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/custom_textformfield.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/text_description.dart';
+import 'package:save_plant/root.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
@@ -32,7 +33,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
     ).showSnackBar(const SnackBar(content: Text("Login Successful")));
     Navigator.push(
   context,
-  MaterialPageRoute(builder: (context) => ProfileView()),
+  MaterialPageRoute(builder: (context) => Root()),
 ); 
   }
 

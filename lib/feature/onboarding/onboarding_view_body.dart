@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:save_plant/core/constants/app_assets.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 import 'package:save_plant/core/widgets/custom_button.dart';
 import 'package:save_plant/feature/auth/presentation/views/signin_view.dart';
@@ -16,21 +17,21 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
   final PageController _controller = PageController();
   int currentIndex = 0;
 
-  List<Map<String, String>> pages = [
+  List<Map<String, dynamic>> pages = [
     {
-      "image": "assets/images/intro1.png",
+      "image": AppAssets.intro1,
       "title": "Scan Your Plants",
       "desc":
           "Simply take a photo of your plant's leaves or stems.Our advanced camera technology captures every\ndetail needed for accurate diagnosis."
     },
     {
-      "image": "assets/images/intro2.png",
+      "image": AppAssets.intro2,
       "title": "AI-Powered Analysis",
       "desc":
           "Our cutting-edge artificial intelligence analyzes your plant instantly, identifying diseases with high accuracy and providing detailed insights."
     },
     {
-      "image": "assets/images/intro3.png",
+      "image": AppAssets.intro3,
       "title": "Track & Protect",
       "desc":
           "Get personalized treatment recommendations, track your plant's health over time, and join a community of plant enthusiasts."

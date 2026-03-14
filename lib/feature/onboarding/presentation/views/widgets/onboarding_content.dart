@@ -10,7 +10,8 @@ class OnboardingContent extends StatelessWidget {
     required this.desc,
   });
 
-  final String image, title, desc;
+  final String  title, desc;
+  final AssetImage image;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class OnboardingContent extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(image),
+                    image: image,
                     fit: BoxFit.cover,
                   ),
                 ),

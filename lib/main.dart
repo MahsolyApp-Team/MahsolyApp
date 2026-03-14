@@ -4,7 +4,7 @@ import 'package:save_plant/core/cache/cache_helper.dart';
 import 'package:save_plant/core/theme/app_theme.dart';
 import 'package:save_plant/core/theme/cubit/theme_cubit.dart';
 import 'package:save_plant/core/theme/cubit/theme_state.dart';
-import 'package:save_plant/feature/onboarding/onboarding_view.dart';
+import 'package:save_plant/feature/home/presentation/views/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: state.themeMode,   
-            home: OnboardingView(),
+            themeMode: state.themeMode,
+            home: HomeView(),
           );
         },
       ),

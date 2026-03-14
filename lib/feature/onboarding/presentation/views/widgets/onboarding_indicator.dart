@@ -3,7 +3,7 @@ import 'package:save_plant/core/constants/app_colors.dart';
 
 class OnboardingIndicator extends StatelessWidget {
   const OnboardingIndicator({super.key,required this.pages, required this.currentIndex});
-final List <Map<String, String>> pages;
+final List <Map<String, dynamic>> pages;
 final int currentIndex;
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,8 @@ final int currentIndex;
                 pages.length,
                 (index) => AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: currentIndex == index ? 22 : 7,
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  width: currentIndex == index ? 22 : 5,
                   height: 6,
                   decoration: BoxDecoration(
                     color: currentIndex == index
