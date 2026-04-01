@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 import 'package:save_plant/core/widgets/custom_textfield.dart';
+import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
 
 class SearchAppBar extends StatefulWidget {
   final ValueChanged<String> onChanged;
@@ -31,12 +32,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Mahsoly",
-          style: AppTextStyle.giloryBold24(
-            context,
-          ).copyWith(color: AppColor.primaryColor),
-        ),
+        HeaderSection(title: 'Mahsoly'),
         SizedBox(height: 20),
         CustomTextfield(
           controller: _controller,

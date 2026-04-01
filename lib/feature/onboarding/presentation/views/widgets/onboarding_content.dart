@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 
@@ -10,7 +9,7 @@ class OnboardingContent extends StatelessWidget {
     required this.desc,
   });
 
-  final String  title, desc;
+  final String title, desc;
   final AssetImage image;
 
   @override
@@ -29,10 +28,7 @@ class OnboardingContent extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: image,
-                    fit: BoxFit.cover,
-                  ),
+                  image: DecorationImage(image: image, fit: BoxFit.cover),
                 ),
               ),
             ),
@@ -55,7 +51,9 @@ class OnboardingContent extends StatelessWidget {
             child: Text(
               desc,
               textAlign: TextAlign.center,
-              style: AppTextStyle.giloryRegular16(context).copyWith(color: Colors.grey),
+              style: AppTextStyle.giloryRegular16(
+                context,
+              ).copyWith(color: Colors.grey),
             ),
           ),
           const Spacer(),

@@ -19,15 +19,11 @@ class CardItem extends StatelessWidget {
       },
       child: Card(
         margin: const EdgeInsets.all(8),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: Colors.grey.shade300),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         elevation: 4,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// الصورة
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(16),
@@ -37,8 +33,6 @@ class CardItem extends StatelessWidget {
                 child: Image(image: item.image, fit: BoxFit.cover),
               ),
             ),
-
-            /// المحتوى
             Padding(
               padding: const EdgeInsets.all(10),
               child: Column(

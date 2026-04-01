@@ -1,0 +1,61 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:save_plant/core/functions/app_decoration.dart';
+import 'package:save_plant/core/theme/text_style.dart';
+import 'package:save_plant/feature/camera/presentation/views/widgets/build_icon_text_row.dart';
+
+class ActionCard extends StatelessWidget {
+  const ActionCard({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.iconData,
+    required this.color,
+    required this.titlegood,
+    required this.titlebad,
+  });
+
+  final String title, subtitle, titlegood, titlebad;
+  final IconData iconData;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: AppDecoration.card(context),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.15),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(iconData, color: color, size: 28),
+          ),
+
+          const SizedBox(width: 12),
+
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: AppTextStyle.giloryBold22(context)),
+
+                Text(subtitle, style: AppTextStyle.giloryRegular18(context)),
+
+                const SizedBox(height: 6),
+
+                BuildIconTextRow(iconColor: Colors.green, text: titlegood),
+                const SizedBox(height: 4),
+                BuildIconTextRow(iconColor: Colors.red, text: titlebad),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:save_plant/core/cache/cache_helper.dart';
 import 'package:save_plant/core/theme/app_theme.dart';
 import 'package:save_plant/core/theme/cubit/theme_cubit.dart';
 import 'package:save_plant/core/theme/cubit/theme_state.dart';
-import 'package:save_plant/feature/home/presentation/views/home_view.dart';
+import 'package:save_plant/feature/camera/presentation/views/photo_tips_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,12 +21,20 @@ class MyApp extends StatelessWidget {
       create: (context) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: state.themeMode,
-            home: HomeView(),
+          return ScreenUtilInit(
+            designSize: const Size(360, 690),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            // Use builder only if you need to use library outside ScreenUtilInit context
+            builder: (_, child) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeMode: state.themeMode,
+                home: PhotoTipsView(),
+              );
+            },
           );
         },
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:save_plant/core/theme/text_style.dart';
-import 'package:save_plant/feature/auth/presentation/views/profile_view.dart';
 import 'package:save_plant/feature/auth/presentation/views/signup_view.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/custom_button_auth.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/custom_textformfield.dart';
@@ -31,10 +30,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(const SnackBar(content: Text("Login Successful")));
-    Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => Root()),
-); 
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => Root()),
+    );
   }
 
   @override
@@ -50,7 +49,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 SizedBox(height: 20),
+                SizedBox(height: 20),
                 Text('Welcome Back', style: AppTextStyle.gilorybold30(context)),
                 Text(
                   'Sign in to continue protecting your plants',
@@ -79,19 +78,17 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   suffixIcon: CupertinoIcons.eye,
                   obscureText: true,
                 ),
-    
+
                 SizedBox(height: 50),
-                CustomButtonAuth(
-                  onPressed: login,
-                  buttonText: 'Login',
-                ),
+                CustomButtonAuth(onPressed: login, buttonText: 'Signin'),
                 SizedBox(height: 15),
                 CustomButtonAuth(
-                  onPressed:(){
+                  onPressed: () {
                     Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => SignupView()));
-                  } ,
+                      context,
+                      MaterialPageRoute(builder: (context) => SignupView()),
+                    );
+                  },
                   buttonText: 'Create an account',
                 ),
               ],

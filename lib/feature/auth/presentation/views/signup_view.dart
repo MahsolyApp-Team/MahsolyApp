@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:save_plant/core/constants/app_assets.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/signup_view_body.dart';
-
 
 class SignupView extends StatefulWidget {
   SignupView({super.key});
@@ -11,18 +11,16 @@ class SignupView extends StatefulWidget {
 }
 
 class _SignupViewState extends State<SignupView> {
- 
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold( 
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: HeaderSection(title: "PlantCare AI"),
+          title: HeaderSection(image: AppAssets.logo, title: "PlantCare AI"),
         ),
-        body:SignupViewBody(),
+        body: SignupViewBody(),
       ),
     );
   }

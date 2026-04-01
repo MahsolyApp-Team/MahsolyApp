@@ -40,7 +40,9 @@ class CustomTextfield extends StatelessWidget {
           filled: true,
           fillColor: enabled
               ? Theme.of(context).colorScheme.background
-              : Colors.grey.shade200, // لون مختلف لما يكون مقفول
+              : Theme.of(
+                  context,
+                ).colorScheme.background, // لون مختلف لما يكون مقفول
           enabledBorder: const OutlineInputBorder(borderSide: BorderSide.none),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),

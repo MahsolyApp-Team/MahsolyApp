@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, deprecated_member_use, unused_label, unused_import, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:save_plant/core/constants/app_assets.dart';
 
 import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/core/theme/text_style.dart';
@@ -18,18 +19,16 @@ class SigninView extends StatefulWidget {
 }
 
 class _SigninViewState extends State<SigninView> {
- 
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-       onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title:  HeaderSection(title: "PlantCare AI",),
+          automaticallyImplyLeading: false,
+          title: HeaderSection(image: AppAssets.logo, title: "PlantCare AI"),
         ),
-        body:SigninViewBody(),
+        body: SigninViewBody(),
       ),
     );
   }

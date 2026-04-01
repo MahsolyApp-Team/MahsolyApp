@@ -1,10 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glaze_nav_bar/glaze_nav_bar.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/feature/auth/presentation/views/profile_view.dart';
+import 'package:save_plant/feature/camera/presentation/views/photo_tips_view.dart';
 import 'package:save_plant/feature/home/presentation/views/home_view.dart';
 
 class Root extends StatefulWidget {
@@ -25,7 +24,7 @@ class _RootState extends State<Root> {
     super.initState();
     pageController = PageController(initialPage: currentPage);
 
-    pages = [HomeView(), ProfileView()];
+    pages = [HomeView(), PhotoTipsView(), ProfileView()];
   }
 
   @override
@@ -60,19 +59,22 @@ class _RootState extends State<Root> {
         },
         items: [
           GlazeNavBarItem(child: Icon(CupertinoIcons.home), label: 'Home'),
-          GlazeNavBarItem(child: Icon(CupertinoIcons.camera), label: 'Camera'),
+          GlazeNavBarItem(
+            child: Icon(CupertinoIcons.photo_camera),
+            label: 'Camera',
+          ),
           GlazeNavBarItem(child: Icon(CupertinoIcons.person), label: 'Profile'),
         ],
-          gradient: LinearGradient(
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    colors: [AppColor.primaryColor, AppColor.secondryColor],
-  ),
-  buttonGradient: LinearGradient(
-    begin: Alignment.bottomLeft,
-    end: Alignment.topRight,
-    colors:  [AppColor.primaryColor, AppColor.secondryColor],
-  ),
+        gradient: LinearGradient(
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight,
+          colors: [AppColor.primaryColor, AppColor.secondryColor],
+        ),
+        buttonGradient: LinearGradient(
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight,
+          colors: [AppColor.primaryColor, AppColor.secondryColor],
+        ),
       ),
     );
   }

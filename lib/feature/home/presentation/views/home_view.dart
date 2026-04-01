@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 110,
           title: SearchAppBar(
             onChanged: (value) {
