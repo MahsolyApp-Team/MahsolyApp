@@ -31,8 +31,6 @@ class _SearchAppBarState extends State<SearchAppBar> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeaderSection(title: 'Mahsoly'),
-        SizedBox(height: 20.h),
         CustomTextfield(
           controller: _controller,
           prefixIcon: Icon(Icons.search, size: 22.sp),

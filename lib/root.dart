@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glaze_nav_bar/glaze_nav_bar.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
-import 'package:save_plant/feature/auth/presentation/views/profile_view.dart';
+import 'package:save_plant/feature/auth/presentation/views/setting_view.dart';
 import 'package:save_plant/feature/camera/presentation/views/photo_tips_view.dart';
 import 'package:save_plant/feature/home/presentation/views/home_view.dart';
 import 'package:save_plant/feature/soil_input/presentation/view/soil_input_view.dart';
@@ -25,7 +25,7 @@ class _RootState extends State<Root> {
     super.initState();
     pageController = PageController(initialPage: currentPage);
 
-    pages = [HomeView(), PhotoTipsView(), SoilInputView(), ProfileView()];
+    pages = [HomeView(), PhotoTipsView(), SoilInputView(), SettingView()];
   }
 
   @override

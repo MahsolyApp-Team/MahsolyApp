@@ -47,7 +47,7 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => SigninView()),
+        MaterialPageRoute(builder: (context) => LoginView()),
       );
     }
   }
@@ -65,7 +65,7 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => SigninView()),
+                    MaterialPageRoute(builder: (context) => LoginView()),
                   );
                 },
                 child: Text(

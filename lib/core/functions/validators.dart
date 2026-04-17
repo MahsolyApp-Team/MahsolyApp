@@ -15,6 +15,23 @@ class Validators {
     return null;
   }
 
+  static String? loginPasswordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Confirm password is required";
+    }
+    return null;
+  }
+
+  static String? confirmPasswordValidator(String? value, String password) {
+    if (value == null || value.isEmpty) {
+      return "Confirm password is required";
+    }
+    if (value != password) {
+      return "Passwords do not match";
+    }
+    return null;
+  }
+
   static String? emailValidator(String? value) {
     if (value == null || value.isEmpty) {
       return "Email is required";
@@ -38,14 +55,14 @@ class Validators {
     }
     return null;
   }
-}
 
-String? validateNumber(String? value) {
-  if (value == null || value.isEmpty) {
-    return "Required";
+  static String? validateNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Required";
+    }
+    if (double.tryParse(value) == null) {
+      return "Enter valid number";
+    }
+    return null;
   }
-  if (double.tryParse(value) == null) {
-    return "Enter valid number";
-  }
-  return null;
 }

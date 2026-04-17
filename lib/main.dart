@@ -1,12 +1,16 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:save_plant/core/cache/cache_helper.dart';
+import 'package:save_plant/core/networking/dio_consumer.dart';
 import 'package:save_plant/core/theme/app_theme.dart';
 import 'package:save_plant/core/theme/cubit/theme_cubit.dart';
 import 'package:save_plant/core/theme/cubit/theme_state.dart';
-import 'package:save_plant/feature/onboarding/onboarding_view.dart';
-import 'package:save_plant/feature/soil_input/presentation/view/soil_input_view.dart';
+import 'package:save_plant/feature/auth/data/repo/user_repository.dart';
+import 'package:save_plant/feature/auth/presentation/cubit/user_cubit.dart';
+import 'package:save_plant/feature/auth/presentation/views/login_view.dart';
+import 'package:save_plant/feature/home/presentation/views/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +23,14 @@ class Mahsoly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(
+          create: (context) =>
+              UserCubit(UserRepository(api: DioConsumer(dio: Dio()))),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return ScreenUtilInit(
@@ -33,7 +43,7 @@ class Mahsoly extends StatelessWidget {
                 theme: AppTheme.lightTheme,
                 darkTheme: AppTheme.darkTheme,
                 themeMode: state.themeMode,
-                home: SoilInputView(),
+                home: LoginView(),
               );
             },
           );

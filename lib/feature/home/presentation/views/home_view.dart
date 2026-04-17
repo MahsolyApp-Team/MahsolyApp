@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
 import 'package:save_plant/feature/home/presentation/views/widgets/home_view_body.dart';
-import 'package:save_plant/feature/home/presentation/views/widgets/search_appbar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -20,22 +19,7 @@ class _HomeViewState extends State<HomeView> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          toolbarHeight: 110,
-          title: SearchAppBar(
-            onChanged: (value) {
-              setState(() {
-                searchQuery = value;
-              });
-            },
-            onClear: () {
-              setState(() {
-                searchQuery = '';
-              });
-            },
-          ),
-        ),
+        appBar: AppBar(title: HeaderSection(title: 'Mahsoly')),
         body: HomeViewBody(searchQuery: searchQuery),
       ),
     );

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:save_plant/core/functions/app_decoration.dart';
+import 'package:save_plant/core/theme/text_style.dart';
 
 class ProfileHeaderCard extends StatefulWidget {
   const ProfileHeaderCard({super.key});
@@ -36,7 +37,7 @@ class _ProfileHeaderCardState extends State<ProfileHeaderCard> {
             alignment: Alignment.bottomRight,
             children: [
               CircleAvatar(
-                radius: 50,
+                radius: 50.r,
                 backgroundColor: Colors.grey.shade200,
                 child: Icon(Icons.person, size: 50.sp, color: Colors.grey),
               ),
@@ -61,17 +62,11 @@ class _ProfileHeaderCardState extends State<ProfileHeaderCard> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Hassan",
-                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-              ),
+              Text("Hassan", style: AppTextStyle.giloryBold18(context)),
               SizedBox(height: 4.h),
               Text(
                 "hassan@gmail.com",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyle.giloryRegular14(context),
               ),
             ],
           ),

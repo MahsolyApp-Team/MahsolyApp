@@ -24,6 +24,7 @@ class AppTheme {
 
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
+      elevation: 1,
       centerTitle: true,
     ),
 
@@ -53,6 +54,7 @@ class AppTheme {
 
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
+      elevation: 1,
       centerTitle: true,
     ),
 

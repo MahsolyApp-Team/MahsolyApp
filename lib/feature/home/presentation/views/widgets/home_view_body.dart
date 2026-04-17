@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:save_plant/core/constants/app_assets.dart';
 import 'package:save_plant/feature/home/presentation/views/widgets/card_item.dart';
 import 'package:save_plant/feature/home/data/model/item_model.dart';
+import 'package:save_plant/feature/home/presentation/views/widgets/search_appbar.dart';
 
 class HomeViewBody extends StatefulWidget {
-  final String searchQuery;
+  String searchQuery;
 
-  const HomeViewBody({super.key, required this.searchQuery});
+  HomeViewBody({super.key, required this.searchQuery});
 
   @override
   State<HomeViewBody> createState() => _HomeViewBodyState();
@@ -194,6 +195,18 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SearchAppBar(
+            onChanged: (value) {
+              setState(() {
+                widget.searchQuery = value;
+              });
+            },
+            onClear: () {
+              setState(() {
+                widget.searchQuery = '';
+              });
+            },
+          ),
           Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

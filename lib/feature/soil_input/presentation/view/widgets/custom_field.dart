@@ -28,7 +28,7 @@ class CustomField extends StatelessWidget {
         prefixIcon: icon,
         controller: controller,
         keyboardType: TextInputType.number,
-        validator: validateNumber,
+        validator: Validators.validateNumber,
       ),
     );
   }

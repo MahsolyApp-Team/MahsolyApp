@@ -35,96 +35,112 @@ class _SoilInputViewBodyState extends State<SoilInputViewBody> {
     super.dispose();
   }
 
+  void resetForm() {
+    formKey.currentState!.reset();
+
+    nController.clear();
+    pController.clear();
+    kController.clear();
+    tempController.clear();
+    humidityController.clear();
+    phController.clear();
+    rainfallController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.all(16.w),
-        child: Column(
-          children: [
-            BuildSection(
-              title: "Nutrients",
+    return Stack(
+      children: [
+        Form(
+          key: formKey,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: EdgeInsets.all(16.w),
+            child: Column(
               children: [
-                CustomField(
-                  hint: "Nitrogen (N)",
-                  icon: Icons.eco,
-                  controller: nController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
+                BuildSection(
+                  title: "Nutrients",
+                  children: [
+                    CustomField(
+                      hint: "Nitrogen (N)",
+                      icon: Icons.eco,
+                      controller: nController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                    CustomField(
+                      hint: "Phosphorous (P)",
+                      icon: Icons.science,
+                      controller: pController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                    CustomField(
+                      hint: "Potassium (K)",
+                      icon: Icons.grass,
+                      controller: kController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                  ],
                 ),
-                CustomField(
-                  hint: "Phosphorous (P)",
-                  icon: Icons.science,
-                  controller: pController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
+
+                SizedBox(height: 16.h),
+
+                BuildSection(
+                  title: "Environment",
+                  children: [
+                    CustomField(
+                      hint: "Temperature (°C)",
+                      icon: Icons.thermostat,
+                      controller: tempController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                    CustomField(
+                      hint: "Humidity (%)",
+                      icon: Icons.water_drop,
+                      controller: humidityController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                    CustomField(
+                      hint: "Rainfall (mm)",
+                      icon: Icons.cloud,
+                      controller: rainfallController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                  ],
                 ),
-                CustomField(
-                  hint: "Potassium (K)",
-                  icon: Icons.grass,
-                  controller: kController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
+
+                SizedBox(height: 16.h),
+
+                BuildSection(
+                  title: "Soil",
+                  children: [
+                    CustomField(
+                      hint: "pH Value",
+                      icon: Icons.biotech,
+                      controller: phController,
+                      keyboardType: TextInputType.number,
+                      validator: Validators.validateNumber,
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 24.h),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 50.h,
+                  child: CustomButton(buttonText: "Analyze", onPressed: () {}),
                 ),
               ],
             ),
-
-            SizedBox(height: 16.h),
-
-            BuildSection(
-              title: "Environment",
-              children: [
-                CustomField(
-                  hint: "Temperature (°C)",
-                  icon: Icons.thermostat,
-                  controller: tempController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
-                ),
-                CustomField(
-                  hint: "Humidity (%)",
-                  icon: Icons.water_drop,
-                  controller: humidityController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
-                ),
-                CustomField(
-                  hint: "Rainfall (mm)",
-                  icon: Icons.cloud,
-                  controller: rainfallController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
-                ),
-              ],
-            ),
-
-            SizedBox(height: 16.h),
-
-            BuildSection(
-              title: "Soil",
-              children: [
-                CustomField(
-                  hint: "pH Value",
-                  icon: Icons.biotech,
-                  controller: phController,
-                  keyboardType: TextInputType.number,
-                  validator: validateNumber,
-                ),
-              ],
-            ),
-
-            SizedBox(height: 24.h),
-
-            SizedBox(
-              width: double.infinity,
-              height: 50.h,
-              child: CustomButton(onPressed: () {}, buttonText: "Analyze"),
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

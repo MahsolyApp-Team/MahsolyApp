@@ -1,9 +1,17 @@
+import 'package:save_plant/core/networking/api_constant.dart';
+
 class ErrorModel {
-  final String message;
-  final int? statusCode;
-  ErrorModel({required this.message, required this.statusCode});
+  final String errorMessage;
+
+  ErrorModel({required this.errorMessage});
 
   factory ErrorModel.fromJson(Map<String, dynamic> json) {
-    return ErrorModel(message: json['message'], statusCode: json['statusCode']);
+    return ErrorModel(
+      errorMessage:
+          json['detail'] as String? ??
+          json['message'] as String? ??
+          json['error'] as String? ??
+          'Something went wrong',
+    );
   }
 }
