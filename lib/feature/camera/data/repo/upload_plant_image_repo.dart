@@ -12,26 +12,24 @@ class PlantRepo {
 
   Future<Either<String, dynamic>> uploadPlantImage(File image) async {
     try {
-      // ✅ جيب التوكن من الكاش
       final token = CacheHelper().getData(key: ApiKey.access_token) as String?;
       print("🔑 TOKEN USED: $token");
 
       if (token == null || token.isEmpty) {
         return Left("Please login first");
       }
-
       final formData = FormData.fromMap({
         "file": await MultipartFile.fromFile(image.path, filename: "plant.jpg"),
       });
 
       final response = await api.post(
-        Endpoints.uploadImage,
+        "${Endpoints.baseUrl}${Endpoints.uploadImage}",
         data: formData,
         options: Options(
           contentType: "multipart/form-data",
           headers: {
             "accept": "application/json",
-            "Authorization": "Bearer $token", // ✅ التوكن هنا
+            "Authorization": "Bearer $token",
           },
         ),
       );

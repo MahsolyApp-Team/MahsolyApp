@@ -18,7 +18,7 @@ class UserRepository {
   }) async {
     try {
       final response = await api.post(
-        Endpoints.signIn,
+        ' ${Endpoints.baseUrl}${Endpoints.signIn}',
         data: {ApiKey.email: email, ApiKey.password: password},
       );
 
@@ -36,8 +36,6 @@ class UserRepository {
       if (token == null || token.isEmpty) {
         return Left("Please enter a valid email and password");
       }
-
-      // ✅ هنا بالظبط
       final decodedToken = JwtDecoder.decode(token);
       final userId = decodedToken['sub'] as String? ?? '';
 
@@ -63,7 +61,7 @@ class UserRepository {
   }) async {
     try {
       final response = await api.post(
-        Endpoints.signUp,
+        "${Endpoints.baseUrl}${Endpoints.signUp}",
         data: {
           ApiKey.name: name,
           ApiKey.email: email,

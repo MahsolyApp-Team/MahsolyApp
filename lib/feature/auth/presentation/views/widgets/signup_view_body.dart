@@ -66,7 +66,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
                       Text(
                         'Create Account',
-                        style: AppTextStyle.gilorybold30(context),
+                        style: AppTextStyle.giloryBold30(context),
                       ),
                       Text(
                         'Start protecting your plants today',

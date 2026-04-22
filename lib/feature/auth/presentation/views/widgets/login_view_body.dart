@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/core/functions/snackbar_message.dart';
 import 'package:save_plant/core/functions/validators.dart';
 import 'package:save_plant/core/theme/text_style.dart';
@@ -67,7 +66,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     SizedBox(height: 20.h),
                     Text(
                       'Welcome Back',
-                      style: AppTextStyle.gilorybold30(context),
+                      style: AppTextStyle.giloryBold30(context),
                     ),
                     Text(
                       'Sign in to continue protecting your plants',

@@ -23,8 +23,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColor.lightBackground,
 
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
-      elevation: 1,
+      backgroundColor: AppColor.primaryColor,
       centerTitle: true,
     ),
 
@@ -53,8 +52,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColor.darkBackground,
 
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
-      elevation: 1,
+      backgroundColor: AppColor.primaryColor,
       centerTitle: true,
     ),
 

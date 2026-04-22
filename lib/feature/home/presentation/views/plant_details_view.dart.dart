@@ -23,7 +23,7 @@ class PlantDetailsView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(item.name, style: AppTextStyle.gilorybold30(context)),
+                  Text(item.name, style: AppTextStyle.giloryBold30(context)),
                   SizedBox(height: 24.h),
                   BuildFeatureCard(
                     icon: Icons.water_drop,

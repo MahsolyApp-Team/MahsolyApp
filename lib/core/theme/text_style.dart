@@ -73,7 +73,7 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle? gilorybold30(BuildContext context) {
+  static TextStyle giloryBold30(BuildContext context) {
     return TextStyle(
       fontSize: 30.sp,
       fontWeight: FontWeight.bold,

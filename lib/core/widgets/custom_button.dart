@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
+import 'package:save_plant/core/theme/text_style.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -8,11 +9,13 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     required this.buttonText,
     this.width,
+    this.child,
   });
 
   final VoidCallback? onPressed;
   final String buttonText;
   final double? width;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +31,9 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(
-            buttonText,
-            style: TextStyle(
-              color: AppColor.lightBackground,
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          child:
+              child ??
+              Text(buttonText!, style: AppTextStyle.giloryRegular18(context)),
         ),
       ),
     );

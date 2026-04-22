@@ -1,13 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; // 🔥 (ADDED) عشان نستخدم Cubit
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:save_plant/core/functions/camera_functions.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
 import 'package:save_plant/feature/camera/presentation/cubit/Upload_plant_image_Cubit.dart';
 import 'package:save_plant/feature/camera/presentation/views/widgets/build_buttom.dart';
-// 🔥 (ADDED) Cubit المسؤول عن رفع الصورة
 
 class BuildCameraPreview extends StatefulWidget {
   const BuildCameraPreview({

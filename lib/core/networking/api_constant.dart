@@ -2,13 +2,18 @@ class Endpoints {
   static const String baseUrl = 'https://mahsoly-app-8ehw.vercel.app/';
   static const String signIn = 'auth/login';
   static String signUp = "auth/register";
+  static String verifyOtp = "auth/verify-otp";
   static String uploadImage = "scan";
+  static const String baseUrlCrop =
+      "https://mahmoudiraqi21-crop-recommendation.hf.space/";
+  static String predictCrop = "predict";
 }
 
 //دي الحاجات الي في ال response
 class ApiKey {
   static String name = "name";
   static String email = "email";
+  static String otp = "otp";
   static String password = "password";
   static String access_token = "access_token";
   static String detail = "message";

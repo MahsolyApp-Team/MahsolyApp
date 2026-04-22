@@ -16,12 +16,7 @@ class HeaderSection extends StatelessWidget {
             ? Image(image: image!, fit: BoxFit.fill)
             : SizedBox(width: 5.w),
         SizedBox(width: 30.w),
-        Text(
-          title,
-          style: AppTextStyle.giloryBold24(
-            context,
-          ).copyWith(color: AppColor.primaryColor),
-        ),
+        Text(title, style: AppTextStyle.giloryBold24(context)),
       ],
     );
   }
