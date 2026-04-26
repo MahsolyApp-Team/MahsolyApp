@@ -24,7 +24,7 @@ class CardItem extends StatelessWidget {
         );
       },
       child: Card(
-        color: Theme.of(context).cardTheme.color,
+        color: Theme.of(context).colorScheme.surface,
         margin: EdgeInsets.all(8.r),
         shape: Theme.of(context).cardTheme.shape,
         elevation: Theme.of(context).cardTheme.elevation,

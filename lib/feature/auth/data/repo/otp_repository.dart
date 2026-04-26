@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:save_plant/core/cache/cache_helper.dart';
 import 'package:save_plant/core/errors/exceptions.dart';
 import 'package:save_plant/core/networking/api_consumer.dart';
 import 'package:save_plant/core/networking/api_constant.dart';

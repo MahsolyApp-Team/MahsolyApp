@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.save_plant">
 
+    <!-- 🔥 Internet (مهم جدًا للـ API) -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <!-- Camera -->
     <uses-permission android:name="android.permission.CAMERA"/>
 
@@ -8,7 +11,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 
     <!-- Android 12 وأقل -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"/>
 
     <application

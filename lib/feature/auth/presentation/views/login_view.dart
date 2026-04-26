@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, deprecated_member_use, unused_label, unused_import, unused_local_variable
+// ignore_for_file: prefer_const_constructors_in_immutables, must_be_immutable, deprecated_member_use, unused_label, unused_import, unused_local_variable
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

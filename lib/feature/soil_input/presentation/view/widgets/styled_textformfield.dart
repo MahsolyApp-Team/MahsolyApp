@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
-import 'package:save_plant/core/theme/text_style.dart';
 
 class StyledTextformfield extends StatelessWidget {
   const StyledTextformfield({

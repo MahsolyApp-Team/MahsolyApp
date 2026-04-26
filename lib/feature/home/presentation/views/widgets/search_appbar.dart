@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:save_plant/core/widgets/custom_textfield.dart';
-import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
 
 class SearchAppBar extends StatefulWidget {
   final ValueChanged<String> onChanged;

@@ -1,5 +1,3 @@
-import 'package:save_plant/core/networking/api_constant.dart';
-
 class ErrorModel {
   final String errorMessage;
 
