@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:save_plant/feature/auth/presentation/views/widgets/header_section.dart';
+import 'package:save_plant/feature/home/presentation/views/widgets/app_drawer.dart';
 import 'package:save_plant/feature/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomeViewState extends State<HomeView> {
       },
       child: Scaffold(
         appBar: AppBar(title: HeaderSection(title: 'Mahsoly')),
+        drawer: const AppDrawer(),
         body: HomeViewBody(searchQuery: searchQuery),
       ),
     );

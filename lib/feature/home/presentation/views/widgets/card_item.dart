@@ -32,7 +32,7 @@ class CardItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(8.r)),
               child: AspectRatio(
                 aspectRatio: aspectRatio,
                 child: Image(image: item.image, fit: BoxFit.cover),
