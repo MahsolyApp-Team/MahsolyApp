@@ -12,7 +12,7 @@ import 'package:save_plant/core/theme/cubit/theme_state.dart';
 import 'package:save_plant/feature/auth/data/repo/user_repository.dart';
 import 'package:save_plant/feature/auth/presentation/cubit/user_cubit.dart';
 import 'package:save_plant/feature/auth/presentation/views/login_view.dart';
-import 'package:save_plant/feature/camera/presentation/views/photo_tips_view.dart';
+import 'package:save_plant/feature/home/presentation/views/home_view.dart';
 import 'package:save_plant/feature/onboarding/onboarding_view.dart';
 
 Future<void> main() async {
@@ -24,11 +24,12 @@ Future<void> main() async {
 
   Gemini.init(apiKey: dotenv.env['CHAT_BOT_API_KEY']!);
 
-  runApp(const Mahsoly());
+  runApp(Mahsoly(startToken: CacheHelper().getData(key: "token")));
 }
 
 class Mahsoly extends StatelessWidget {
-  const Mahsoly({super.key});
+  Mahsoly({super.key, this.startToken});
+  final String? startToken;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,9 @@ class Mahsoly extends StatelessWidget {
                 theme: AppTheme.lightTheme,
                 darkTheme: AppTheme.darkTheme,
                 themeMode: state.themeMode,
-                home: OnboardingView(),
+                home: startToken != null && startToken!.isNotEmpty
+                    ? HomeView()
+                    : OnboardingView(),
               );
             },
           );

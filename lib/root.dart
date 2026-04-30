@@ -70,7 +70,7 @@ class _RootState extends State<Root> {
             label: 'Soil',
           ),
 
-          GlazeNavBarItem(child: Icon(Icons.smart_toy), label: 'ChatBot'),
+          GlazeNavBarItem(child: Icon(Icons.smart_toy), label: 'Plant AI'),
         ],
         gradient: LinearGradient(
           begin: Alignment.bottomLeft,

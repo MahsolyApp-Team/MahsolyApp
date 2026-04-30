@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:save_plant/core/constants/app_colors.dart';
 import 'package:save_plant/core/functions/snackbar_message.dart';
+import 'package:save_plant/core/theme/text_style.dart';
 import 'package:save_plant/feature/auth/presentation/cubit/otp_cubit.dart';
 import 'package:save_plant/feature/auth/presentation/cubit/otp_state.dart';
 import 'package:save_plant/feature/auth/presentation/views/login_view.dart';
+import 'package:save_plant/feature/auth/presentation/views/widgets/custom_button_auth.dart';
 import 'package:save_plant/root.dart';
 
 class OtpViewBody extends StatefulWidget {
@@ -21,7 +24,7 @@ class _OtpViewBodyState extends State<OtpViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.w),
       child: BlocConsumer<OtpCubit, OtpState>(
         listener: (context, state) {
           if (state is OtpSuccess) {
@@ -45,24 +48,22 @@ class _OtpViewBodyState extends State<OtpViewBody> {
         },
         builder: (context, state) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "Enter the OTP sent to your email",
-                style: TextStyle(fontSize: 16),
+                style: AppTextStyle.giloryBold18(context),
               ),
-
-              const SizedBox(height: 10),
-
+              SizedBox(height: 5.h),
               Text(
                 widget.email,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
+                style: AppTextStyle.giloryRegular16(
+                  context,
+                ).copyWith(color: AppColor.primaryColor),
               ),
 
-              const SizedBox(height: 30),
+              SizedBox(height: 25.h),
 
               TextField(
                 controller: otpController,
@@ -72,12 +73,10 @@ class _OtpViewBodyState extends State<OtpViewBody> {
                   border: OutlineInputBorder(),
                 ),
               ),
-
-              const SizedBox(height: 20),
-
+              SizedBox(height: 20.h),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: CustomButtonAuth(
                   onPressed: state is OtpLoading
                       ? null
                       : () {
@@ -87,8 +86,13 @@ class _OtpViewBodyState extends State<OtpViewBody> {
                           );
                         },
                   child: state is OtpLoading
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : const Text("Verify"),
+                      ? CircularProgressIndicator(
+                          color: Theme.of(context).colorScheme.surface,
+                        )
+                      : Text(
+                          "Verify",
+                          style: AppTextStyle.giloryRegular18(context),
+                        ),
                 ),
               ),
             ],
