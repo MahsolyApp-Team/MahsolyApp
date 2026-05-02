@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.save_plant">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 🔥 Internet (مهم جدًا للـ API) -->
+    <!-- Internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- Camera -->
@@ -16,7 +15,7 @@
         android:maxSdkVersion="32"/>
 
     <application
-        android:label="save_plant"
+        android:label="Mahsoly"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">

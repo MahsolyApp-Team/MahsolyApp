@@ -15,7 +15,7 @@ class OtpRepository {
   }) async {
     try {
       final response = await api.post(
-        "${Endpoints.baseUrl}${Endpoints.verifyOtp}",
+        Endpoints.verifyOtp,
         data: {ApiKey.email: email, ApiKey.otp: otp},
       );
 

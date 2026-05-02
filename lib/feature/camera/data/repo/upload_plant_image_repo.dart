@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:save_plant/core/networking/api_consumer.dart';
 import 'package:save_plant/core/networking/api_constant.dart';
-import 'package:save_plant/core/cache/cache_helper.dart'; // ✅ أضف الاستيراد
+import 'package:save_plant/core/cache/cache_helper.dart';
 
 class PlantRepo {
   final ApiConsumer api;
@@ -25,7 +25,7 @@ class PlantRepo {
       });
 
       final response = await api.post(
-        "${Endpoints.baseUrl}${Endpoints.uploadImage}",
+        Endpoints.uploadImage,
         data: formData,
         options: Options(
           contentType: "multipart/form-data",

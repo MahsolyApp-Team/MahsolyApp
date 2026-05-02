@@ -4,9 +4,7 @@ class Endpoints {
   static String signUp = "auth/register";
   static String verifyOtp = "auth/verify-otp";
   static String uploadImage = "scan";
-  static const String baseUrlCrop =
-      "https://mahmoudiraqi21-crop-recommendation.hf.space/";
-  static String predictCrop = "predict";
+  static String predictCrop = "predict-crop";
 }
 
 //دي الحاجات الي في ال response

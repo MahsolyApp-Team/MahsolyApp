@@ -18,7 +18,7 @@ class UserRepository {
   }) async {
     try {
       final response = await api.post(
-        '${Endpoints.baseUrl}${Endpoints.signIn}',
+        Endpoints.signIn,
         data: {ApiKey.email: email, ApiKey.password: password},
       );
 
@@ -40,23 +40,21 @@ class UserRepository {
         return Left("Invalid token");
       }
 
-      // decode token
       final decodedToken = JwtDecoder.decode(token);
       final userId = decodedToken['sub']?.toString() ?? '';
 
-      // ✅ خزّن التوكن صح
       await CacheHelper().saveData(key: ApiKey.access_token, value: token);
 
       await CacheHelper().saveData(key: ApiKey.id, value: userId);
 
-      print("✅ TOKEN: $token");
-      print("✅ USER ID: $userId");
+      print(" TOKEN: $token");
+      print(" USER ID: $userId");
 
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);
     } catch (e) {
-      print("❌ signIn error: $e");
+      print(" signIn error: $e");
       return Left("Something went wrong");
     }
   }
@@ -68,7 +66,7 @@ class UserRepository {
   }) async {
     try {
       final response = await api.post(
-        "${Endpoints.baseUrl}${Endpoints.signUp}",
+        Endpoints.signUp,
         data: {
           ApiKey.name: name,
           ApiKey.email: email,

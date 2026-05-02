@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:save_plant/core/constants/app_assets.dart';
 import 'package:save_plant/core/theme/text_style.dart';
 import 'package:save_plant/core/widgets/custom_button.dart';
+import 'package:save_plant/core/cache/cache_helper.dart';
 import 'package:save_plant/feature/auth/presentation/views/login_view.dart';
 import 'package:save_plant/feature/onboarding/presentation/views/widgets/onboarding_content.dart';
 import 'package:save_plant/feature/onboarding/presentation/views/widgets/onboarding_indicator.dart';
@@ -23,7 +24,7 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
       "image": AppAssets.intro1,
       "title": "Scan Your Plants",
       "desc":
-          "Simply take a photo of your plant's leaves or stems.Our advanced camera technology captures every\ndetail needed for accurate diagnosis.",
+          "Simply take a photo of your plant's leaves or stems.Our advanced camera technology captures every detail needed for accurate diagnosis.",
     },
     {
       "image": AppAssets.intro2,
@@ -38,17 +39,24 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
           "Get personalized treatment recommendations, track your plant's health over time, and join a community of plant enthusiasts.",
     },
   ];
-  void nextPage() {
+
+  Future<void> finishOnboarding() async {
+    await CacheHelper().saveData(key: "onboardingSeen", value: true);
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginView()),
+    );
+  }
+
+  void nextPage() async {
     if (currentIndex < pages.length - 1) {
       _controller.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
       );
     } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginView()),
-      );
+      await finishOnboarding();
     }
   }
 
@@ -62,11 +70,8 @@ class _OnboardingViewbodyState extends State<OnboardingViewbody> {
             child: Align(
               alignment: Alignment.topRight,
               child: InkWell(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginView()),
-                  );
+                onTap: () async {
+                  await finishOnboarding();
                 },
                 child: Text(
                   "Skip",

@@ -22,7 +22,7 @@ class SoilRepo {
   }) async {
     try {
       final response = await api.post(
-        "${Endpoints.baseUrlCrop}${Endpoints.predictCrop}",
+        Endpoints.predictCrop,
         data: {
           "N": _toDouble(n),
           "P": _toDouble(p),
