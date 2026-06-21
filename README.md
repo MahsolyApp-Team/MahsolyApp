@@ -46,7 +46,7 @@ In the face of global food security challenges, **Mahsoly** empowers users with 
   <img src="assets/readme/dashboard.jpg" width="24%" />
   <img src="assets/readme/crop_result.jpg" width="24%" />
   <img src="assets/readme/chatbot.jpg" width="24%" />
-  <img src="assets/readme/plant_ai_result.jpg" width="24%" />
+  <img src="assets/readme/Plant_disease_detection.jpg" width="24%" />
 </p>
 
 ---
